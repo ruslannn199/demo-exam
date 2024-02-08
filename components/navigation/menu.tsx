@@ -14,6 +14,8 @@ import { MenuIcon } from 'lucide-react';
 import { useState } from 'react';
 import { cn, useWindowSize } from '@/lib';
 
+// TODO: change backgroundColor on hover
+
 interface Props {}
 
 const menuItems = [
@@ -61,15 +63,15 @@ const Menu: NextComponentType<NextPageContext, {}, Props> = (
       </Toggle>
       <NavigationMenu
         className={cn(
-          width < 768
+          width && width < 768
             ? 'absolute top-0 right-0 w-full h-screen bg-white duration-300 shadow-lg'
             : '',
-          width < 768 && !open ? 'right-[-240px]' : '',
+          width && width < 768 && !open ? 'right-[-240px]' : '',
         )}
       >
         <NavigationMenuList
           className={cn(
-            width < 768 ? 'flex flex-col w-[240px]' : '',
+            width && width < 768 ? 'flex flex-col w-[240px]' : '',
             'gap-4',
           )}
         >

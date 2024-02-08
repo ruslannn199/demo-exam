@@ -8,7 +8,6 @@ import Main from '@/components/layout/main';
 import Footer from '@/components/layout/footer';
 
 // TODO: Make global layout
-// Header must contain corporate identity
 // Footer must contain copyright, requisites, contacts and social networks
 // Also there's need in favicon and meta tags?
 

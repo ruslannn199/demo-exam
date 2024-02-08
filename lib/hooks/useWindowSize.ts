@@ -32,5 +32,5 @@ export const useWindowSize = () => {
 
     return windowSize;
   }
-  return { width: 0, height: 0 };
+  return { width: undefined, height: undefined };
 };
