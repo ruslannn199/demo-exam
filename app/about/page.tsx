@@ -4,9 +4,6 @@ import type { NextComponentType, NextPageContext } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// TODO: Make about page
-// About page must contain info about company and contacts: addresses, phones, emails, etc.
-
 const reasons = [
   {
     image: '/reason-achievement.svg',
@@ -47,7 +44,7 @@ const schools = [
   },
   {
     image: '/barnaul.jpg',
-    address: 'ул. Попова, д. 12',
+    address: 'ул. Попова, д. 14А',
     email: 'bigbenschool-barnaul@gmail.com',
     phone: '+7 (3852) 59-08-76',
   },
