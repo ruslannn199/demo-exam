@@ -157,7 +157,7 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
       </section>
       <section>
         <Title level={2}>Последние новости</Title>
-        <News amount={3} />
+        <News amount={4} />
       </section>
     </div>
   );

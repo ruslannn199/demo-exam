@@ -2,7 +2,12 @@ import type { NextComponentType, NextPageContext } from 'next';
 import NewsCard from '@/components/display/news-card';
 import { sub } from 'date-fns';
 
-const newsImages: string[] = ['/news-1.jpg', '/news-2.jpg', '/news-3.jpg'];
+const newsImages: string[] = [
+  '/news-1.jpg',
+  '/news-2.jpg',
+  '/news-3.jpg',
+  '/news-4.jpg',
+];
 
 const generateNews = (amount: number) =>
   [...new Array(amount)].map((_, index) => ({
@@ -23,7 +28,7 @@ const News: NextComponentType<NextPageContext, {}, Props> = ({
   const cards = generateNews(amount);
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
       {cards.map((news) => (
         <NewsCard key={news.id} {...news} />
       ))}
