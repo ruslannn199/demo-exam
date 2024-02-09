@@ -107,7 +107,10 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
           className="w-full h-full"
         />
         <article className="absolute bottom-0 w-full bg-secondary text-center py-4 md:py-10 angle before:bg-secondary before:rotate-180">
-          <Title level={2} className="font-thin text-xl sm:text-2xl md:text-4xl">
+          <Title
+            level={2}
+            className="font-thin text-xl sm:text-2xl md:text-4xl"
+          >
             Big Ben - это онлайн и оффлайн школа английского языка для
             детей и взрослых
           </Title>

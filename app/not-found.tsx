@@ -13,6 +13,6 @@ const NotFound: NextComponentType<NextPageContext, {}, Props> = (
       <Image src="/404.svg" width={300} height={300} alt="404" />
     </div>
   );
-}
+};
 
 export default NotFound;

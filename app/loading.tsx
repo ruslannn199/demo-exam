@@ -6,7 +6,10 @@ const Loading: NextComponentType<NextPageContext, {}, Props> = (
   props: Props,
 ) => {
   return (
-    <div role="status" className="flex justify-center items-center w-full h-full min-h-[50vh]">
+    <div
+      role="status"
+      className="flex justify-center items-center w-full h-full min-h-[50vh]"
+    >
       <svg
         aria-hidden="true"
         className="w-8 h-8 text-primary-foreground animate-spin dark:text-gray-600 fill-primary"

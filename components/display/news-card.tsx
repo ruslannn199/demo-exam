@@ -30,7 +30,13 @@ const NewsCard: NextComponentType<NextPageContext, {}, Props> = ({
     <Link href={`/news/${id}`} prefetch={false}>
       <Card className="flex flex-col gap-2">
         <CardHeader className="relative h-[240px]">
-          <Image src={image} alt={title} objectFit="cover" layout="fill" fill />
+          <Image
+            src={image}
+            alt={title}
+            objectFit="cover"
+            layout="fill"
+            fill
+          />
         </CardHeader>
         <CardContent className="flex flex-col gap-2 pt-4">
           <CardTitle>{title}</CardTitle>
