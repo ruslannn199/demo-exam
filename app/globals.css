@@ -84,4 +84,8 @@
     mask: url(/angle.svg) center center / 100% 100% no-repeat;
     transform: scaleY(-1);
   }
+
+  .bg-laptop {
+    background: transparent url(/laptop.jpg) 50% no-repeat;
+  }
 }

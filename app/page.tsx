@@ -16,12 +16,6 @@ import { IconFriends, IconUsersGroup } from '@tabler/icons-react';
 import { BabyIcon, CircleUserRoundIcon } from 'lucide-react';
 import type { NextComponentType, NextPageContext } from 'next';
 
-// TODO: Main page
-// Main page must include next components:
-// 1. Order a service. Form in a modal with next fields:
-// Select service, name, phone, email, date and submit button
-// 2. News page from news card: max 3 cards
-
 interface Props {}
 
 const servicesData: ServiceBadgeProps[] = [
