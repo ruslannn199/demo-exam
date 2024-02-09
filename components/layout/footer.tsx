@@ -122,7 +122,7 @@ const Footer: NextComponentType<NextPageContext, {}, Props> = (
     <footer
       className={cn(
         'absolute bottom-0 w-full bg-primary text-primary-foreground px-8 py-6',
-        'footer-angle flex flex-wrap flex-col gap-4 justify-around md:flex-row md:flex-nowrap',
+        'angle flex flex-wrap flex-col gap-4 justify-around md:flex-row md:flex-nowrap',
       )}
     >
       <div className="container mx-auto px-8 flex flex-col gap-2">

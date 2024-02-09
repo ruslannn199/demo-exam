@@ -7,7 +7,7 @@ const titleVariants = cva(['scroll-m-20', 'tracking-tight'], {
   variants: {
     level: {
       1: ['text-4xl', 'font-extrabold', 'lg:text-5xl'],
-      2: ['first:mt-0', 'font-semibold', 'border-b', 'pb-2', 'text-3xl'],
+      2: ['first:mt-0', 'font-semibold', 'pb-2', 'text-3xl'],
       3: ['text-2xl', 'font-semibold'],
       4: ['text-xl', 'font-semibold'],
       5: ['text-sm', 'font-semibold'],

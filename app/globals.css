@@ -76,11 +76,11 @@
 }
 
 @layer components {
-  .footer-angle {
+  .angle {
     @apply before:h-5 before:w-full before:absolute before:left-0 before:top-[-19px] before:bg-primary;
   }
 
-  .footer-angle::before {
+  .angle::before {
     mask: url(/angle.svg) center center / 100% 100% no-repeat;
     transform: scaleY(-1);
   }
