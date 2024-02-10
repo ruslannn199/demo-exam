@@ -7,9 +7,10 @@ import type { ControllerRenderProps } from 'react-hook-form';
 
 interface Props extends ControllerRenderProps<any, any> {}
 
-const PhoneInput: NextComponentType<NextPageContext, {}, Props> = (
-  { ref, ...props }: Props,
-) => {
+const PhoneInput: NextComponentType<NextPageContext, {}, Props> = ({
+  ref,
+  ...props
+}: Props) => {
   return (
     <BasePhoneInput
       {...props}

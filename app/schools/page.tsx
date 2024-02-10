@@ -7,53 +7,11 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { Separator } from '@/components/ui/separator';
+import { schools } from '@/consts';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import type { NextComponentType, NextPageContext } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-
-const schools = [
-  {
-    city: 'Томск',
-    image: '/tomsk.jpg',
-    address: 'ул.\xa0Кирова, д.\xa056, офис\xa0202',
-    addressLink: 'https://yandex.ru/maps/-/CDBfESJH',
-    email: `bigbenschool-tomsk@gmail.com`,
-    phone: '+7\xa0(3822)\xa049\u201156\u201187',
-  },
-  {
-    city: 'Новосибирск',
-    image: '/novosibirsk.jpg',
-    address: 'пр.\xa0Карла\xa0Маркса, д.\xa037',
-    addressLink: 'https://yandex.ru/maps/-/CDBfEK1z',
-    email: `bigbenschool-novosibirsk@gmail.com`,
-    phone: '+7\xa0(383)\xa0238\u201148\u201156',
-  },
-  {
-    city: 'Красноярск',
-    image: '/krasnoyarsk.jpg',
-    address: 'ул.\xa0Сурикова, д.\xa012',
-    addressLink: 'https://yandex.ru/maps/-/CDBfEW1y',
-    email: `bigbenschool-krasnoyarsk@gmail.com`,
-    phone: '+7\xa0(391)\xa0238\u201148\u201156',
-  },
-  {
-    city: 'Барнаул',
-    image: '/barnaul.jpg',
-    address: 'ул.\xa0Попова, д.\xa014А',
-    addressLink: 'https://yandex.ru/maps/-/CDBfED9W',
-    email: `bigbenschool-barnaul@gmail.com`,
-    phone: '+7\xa0(3852)\xa059\u201108\u201176',
-  },
-  {
-    city: 'Кемерово',
-    image: '/kemerovo.jpg',
-    address: 'ул.\xa0Весенняя, д.\xa019',
-    addressLink: 'https://yandex.ru/maps/-/CDBfELK7',
-    email: `bigbenschool-kemerovo@gmail.com`,
-    phone: '+7\xa0(3842)\xa049\u201156\u201187',
-  },
-];
 
 interface Props {}
 
@@ -69,7 +27,10 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
         <CarouselContent>
           {schools.map(
             ({ image, address, addressLink, email, phone, city }) => (
-              <CarouselItem key={email} className="flex flex-col lg:flex-row">
+              <CarouselItem
+                key={city}
+                className="flex flex-col lg:flex-row"
+              >
                 <div className="flex flex-col gap-4 p-4 max-w-[500px] text-sm sm:text-base">
                   <Title level={3}>Школа в г.{city}</Title>
                   <Separator />

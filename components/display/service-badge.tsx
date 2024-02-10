@@ -13,20 +13,24 @@ import { ArrowRightCircle } from 'lucide-react';
 
 export interface ServiceBadgeProps {
   title: string;
-  description: string;
-  image: React.ReactNode;
+  shortDescription: string;
+  icon: React.ReactNode;
 }
 
 const ServiceBadge: NextComponentType<
   NextPageContext,
   {},
   ServiceBadgeProps
-> = ({ title, description, image }: ServiceBadgeProps) => {
+> = ({
+  title,
+  shortDescription: description,
+  icon,
+}: ServiceBadgeProps) => {
   return (
     <Card className="flex flex-col h-full max-h-[360px] hover:translate-y-[-5px] duration-200 cursor-pointer ease-in">
       <CardHeader className="flex-row justify-between items-center">
         <CardTitle>{title}</CardTitle>
-        <div className="border-2 border-primary rounded p-2">{image}</div>
+        <div className="border-2 border-primary rounded p-2">{icon}</div>
       </CardHeader>
       <CardContent>
         <CardDescription>{description}</CardDescription>

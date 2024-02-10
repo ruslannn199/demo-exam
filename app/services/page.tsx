@@ -7,47 +7,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Services } from '@/consts';
+import { Services, services } from '@/consts';
 import type { NextComponentType, NextPageContext } from 'next';
 import Image from 'next/image';
-
-const services = [
-  {
-    service: Services.FOR_KIDS,
-    description: `На занятиях мы используем современные и интересные методики,
-    которые помогут детям развить навыки общения, восприятия речи на слух, чтения и письма
-    на английском языке. Наши опытные преподаватели учитывают возрастные особенности детей
-    и делают уроки веселыми и захватывающими, чтобы маленькие ученики чувствовали себя комфортно
-    и с удовольствием изучали английский язык.`,
-    image: '/for-kids.jpg',
-    price: 3500,
-  },
-  {
-    service: Services.FOR_ADULTS,
-    description: `Наши опытные преподаватели используют современные методики и индивидуальный подход к каждому ученику,
-    чтобы помочь вам достичь своих целей в изучении английского языка. На занятиях мы уделяем внимание всем аспектам языка:
-    разговорной речи, восприятию на слух, чтению и письму.`,
-    image: '/for-adults.jpg',
-    price: 5500,
-  },
-  {
-    service: Services.INDIVIDUAL,
-    description: `Мы предлагаем индивидуальные программы обучения английскому языку для детей и взрослых,
-    которые учитывают их уровень знаний, интересы и цели. Наши опытные преподаватели используют современные методики
-    и индивидуальный подход к каждому ученику, чтобы помочь вам достичь своих целей в изучении английского языка.`,
-    image: '/individual.jpg',
-    price: 7500,
-  },
-  {
-    service: Services.CORPORATE,
-    description: `Мы предлагаем корпоративные программы обучения английскому языку для компаний,
-    которые хотят повысить коммуникативные навыки и продуктивность своих сотрудников. Наши опытные преподаватели
-    используют современные методики и индивидуальный подход к каждому ученику, чтобы помочь сотрудникам компании
-    достичь своих целей в изучении английского языка.`,
-    image: '/corporate.jpg',
-    price: 10500,
-  },
-];
 
 interface Props {}
 
@@ -55,40 +17,49 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
   props: Props,
 ) => {
   return (
-    <div>
+    <section>
+      <Title level={2} className="text-center mb-12 md:text-5xl">
+        Список наших услуг
+      </Title>
       <Accordion type="single" collapsible className="w-full">
-        {services.map(({ service, description, image, price }, index) => (
-          <AccordionItem value={service} key={service} className="px-12">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex md:flex-col gap-4 w-full items-start">
-                <Title level={2}>0{index + 1}</Title>
-                <div className="flex items-center gap-12">
-                  <div className="relative hidden sm:block sm:w-[140px] sm:h-[180px]">
-                    <Image
-                      src={image}
-                      alt={service}
-                      fill
-                      sizes="100vw"
-                      className="object-cover rounded-xl"
-                    />
+        {services.map(
+          ({ title: service, description, image, price }, index) => (
+            <AccordionItem value={service} key={service} className="px-12">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex md:flex-col gap-4 w-full items-center md:items-start">
+                  <Title level={2}>0{index + 1}</Title>
+                  <div className="flex items-center gap-12">
+                    <div className="relative hidden sm:block sm:w-[140px] sm:h-[180px]">
+                      <Image
+                        src={image}
+                        alt={service}
+                        fill
+                        sizes="100vw"
+                        className="object-cover rounded-xl"
+                      />
+                    </div>
+                    <Text className="text-xl md:text-3xl">{service}</Text>
                   </div>
-                  <Text className="text-xl md:text-3xl">{service}</Text>
                 </div>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="flex flex-col md:flex-row gap-8">
-                <Text className="text-sm sm:text-xl w-full">{description}</Text>
-                <div className="flex flex-col md:items-end gap-4 w-full md:w-1/3">
-                  <Text className="text-base sm:text-xl">Цена: {price}₽ в месяц</Text>
-                  <BuyServiceModal service={service} />
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="flex flex-col md:flex-row gap-8">
+                  <Text className="text-sm sm:text-xl w-full">
+                    {description}
+                  </Text>
+                  <div className="flex flex-col md:items-end gap-4 w-full md:w-1/3">
+                    <Text className="text-base sm:text-xl">
+                      Цена: {price}₽ в месяц
+                    </Text>
+                    <BuyServiceModal service={service} />
+                  </div>
                 </div>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
+              </AccordionContent>
+            </AccordionItem>
+          ),
+        )}
       </Accordion>
-    </div>
+    </section>
   );
 };
 
