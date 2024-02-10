@@ -22,7 +22,7 @@ const BuyServiceModal: NextComponentType<NextPageContext, {}, Props> = (
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Записаться</Button>
+        <Button className="max-w-fit">Записаться</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

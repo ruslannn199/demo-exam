@@ -45,12 +45,12 @@ const Question: NextComponentType<NextPageContext, {}, Props> = (
   };
 
   return (
-    <div className="w-[80%] flex justify-center p-8 gap-12 border-4 rounded-xl">
-      <div className="flex flex-col gap-8">
-        <Title level={2} className="uppercase text-5xl">
+    <div className="w-[80%] flex flex-col md:flex-row justify-center p-8 gap-6 sm:gap-12 border-4 rounded-xl">
+      <div className="flex flex-col gap-4 sm:gap-8">
+        <Title level={2} className="uppercase text-2xl sm:text-3xl md:text-5xl">
           Оставьте заявку, и мы ответим на вопросы
         </Title>
-        <Text className="text-xl">
+        <Text className="text-sm md:text-xl">
           Позвоним с 8:00 до 22:00. Задавайте любые вопросы, а мы ответим и
           поможем подобрать занятия
         </Text>

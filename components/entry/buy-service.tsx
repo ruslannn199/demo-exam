@@ -83,7 +83,7 @@ const BuyService: NextComponentType<NextPageContext, {}, Props> = (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="flex flex-col gap-4"
+        className="flex flex-col gap-1 md:gap-4"
       >
         <SelectService />
         <FormField

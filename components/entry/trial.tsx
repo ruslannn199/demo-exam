@@ -16,6 +16,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Title from '../typography/title';
 import { cn } from '@/lib';
+import Text from '@/components/typography/text';
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Неверная почта' }),
@@ -46,7 +47,7 @@ const Trial: NextComponentType<NextPageContext, {}, Props> = (
   return (
     <div className="flex flex-col justify-center items-center gap-4 z-10 py-12">
       <Title level={2}>Запишитесь на пробное занятие</Title>
-      <p>Чтобы оценить все преимущества нашей школы</p>
+      <Text>Чтобы оценить все преимущества нашей школы</Text>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handleSubmit)}

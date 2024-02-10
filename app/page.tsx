@@ -102,10 +102,15 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
           muted
           className="w-full h-full"
         />
-        <article className="absolute bottom-0 w-full bg-secondary text-center py-4 md:py-10 angle before:bg-secondary before:rotate-180">
+        <article
+          className={cn(
+            'absolute bottom-0 w-full bg-secondary text-center py-2 sm:py-4 md:py-10',
+            'angle before:bg-secondary before:rotate-180',
+          )}
+        >
           <Title
             level={2}
-            className="font-thin text-xl sm:text-2xl md:text-4xl"
+            className="font-thin text-sm sm:text-2xl md:text-4xl"
           >
             Big Ben - это онлайн и оффлайн школа английского языка для
             детей и взрослых
@@ -130,14 +135,17 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
       </section>
       <div
         className={cn(
-          `flex flex-col items-center w-full gap-12`,
-          `before:absolute before:h-[616px] md:before:h-[400px] before:w-full before:bg-secondary before:mx-[-16px]`,
+          `flex flex-col items-center w-full gap-24 gap-x-12 md:gap-12`,
+          `before:absolute before:h-[600px] md:before:h-[400px] before:w-full before:bg-secondary before:mx-[-16px]`,
         )}
       >
         <Trial />
         <Question />
       </div>
-      <section className="flex flex-col justify-center items-center gap-8 text-center">
+      <section
+        className="flex flex-col justify-center items-center gap-8 text-center"
+        id="teachers"
+      >
         <Title level={2}>Наши преподаватели</Title>
         <Text className="px-12">
           У нас работают лучшие преподаватели России в сегменте

@@ -60,10 +60,10 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
         {services.map(({ service, description, image, price }, index) => (
           <AccordionItem value={service} key={service} className="px-12">
             <AccordionTrigger className="hover:no-underline">
-              <div className="flex flex-col gap-4 w-full items-start">
+              <div className="flex md:flex-col gap-4 w-full items-start">
                 <Title level={2}>0{index + 1}</Title>
                 <div className="flex items-center gap-12">
-                  <div className="relative w-[140px] h-[180px]">
+                  <div className="relative hidden sm:block sm:w-[140px] sm:h-[180px]">
                     <Image
                       src={image}
                       alt={service}
@@ -72,15 +72,15 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
                       className="object-cover rounded-xl"
                     />
                   </div>
-                  <Text className="text-3xl">{service}</Text>
+                  <Text className="text-xl md:text-3xl">{service}</Text>
                 </div>
               </div>
             </AccordionTrigger>
             <AccordionContent>
-              <div className="flex gap-8">
-                <Text className="text-xl w-full">{description}</Text>
-                <div className="flex flex-col items-end gap-4 w-1/3">
-                  <Text className="text-xl">Цена: {price}₽ в месяц</Text>
+              <div className="flex flex-col md:flex-row gap-8">
+                <Text className="text-sm sm:text-xl w-full">{description}</Text>
+                <div className="flex flex-col md:items-end gap-4 w-full md:w-1/3">
+                  <Text className="text-base sm:text-xl">Цена: {price}₽ в месяц</Text>
                   <BuyServiceModal service={service} />
                 </div>
               </div>

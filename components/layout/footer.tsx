@@ -19,7 +19,7 @@ const usefulLinks: React.ReactNode[] = [
   <Link href="/about" key="about">
     О компании
   </Link>,
-  <Link href="#teachers" key="teachers">
+  <Link href="/#teachers" key="teachers">
     Преподаватели
   </Link>,
   <Link href="/about#contacts" key="contacts">

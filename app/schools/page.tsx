@@ -18,7 +18,7 @@ const schools = [
     image: '/tomsk.jpg',
     address: 'ул.\xa0Кирова, д.\xa056, офис\xa0202',
     addressLink: 'https://yandex.ru/maps/-/CDBfESJH',
-    email: `bigbenschool\u2011tomsk@gmail.com`,
+    email: `bigbenschool-tomsk@gmail.com`,
     phone: '+7\xa0(3822)\xa049\u201156\u201187',
   },
   {
@@ -26,15 +26,15 @@ const schools = [
     image: '/novosibirsk.jpg',
     address: 'пр.\xa0Карла\xa0Маркса, д.\xa037',
     addressLink: 'https://yandex.ru/maps/-/CDBfEK1z',
-    email: `bigbenschool\u2011novosibirsk@gmail.com`,
-    phone: '+7 (383) 238\u201148\u201156',
+    email: `bigbenschool-novosibirsk@gmail.com`,
+    phone: '+7\xa0(383)\xa0238\u201148\u201156',
   },
   {
     city: 'Красноярск',
     image: '/krasnoyarsk.jpg',
     address: 'ул.\xa0Сурикова, д.\xa012',
     addressLink: 'https://yandex.ru/maps/-/CDBfEW1y',
-    email: `bigbenschool\u2011krasnoyarsk@gmail.com`,
+    email: `bigbenschool-krasnoyarsk@gmail.com`,
     phone: '+7\xa0(391)\xa0238\u201148\u201156',
   },
   {
@@ -42,7 +42,7 @@ const schools = [
     image: '/barnaul.jpg',
     address: 'ул.\xa0Попова, д.\xa014А',
     addressLink: 'https://yandex.ru/maps/-/CDBfED9W',
-    email: `bigbenschool\u2011barnaul@gmail.com`,
+    email: `bigbenschool-barnaul@gmail.com`,
     phone: '+7\xa0(3852)\xa059\u201108\u201176',
   },
   {
@@ -50,7 +50,7 @@ const schools = [
     image: '/kemerovo.jpg',
     address: 'ул.\xa0Весенняя, д.\xa019',
     addressLink: 'https://yandex.ru/maps/-/CDBfELK7',
-    email: `bigbenschool\u2011kemerovo@gmail.com`,
+    email: `bigbenschool-kemerovo@gmail.com`,
     phone: '+7\xa0(3842)\xa049\u201156\u201187',
   },
 ];
@@ -61,16 +61,16 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
   props: Props,
 ) => {
   return (
-    <div className="select-none">
+    <div className="flex items-center ml-12 select-none">
       <Carousel
         opts={{ loop: true, align: 'start' }}
-        className="w-[95%] h-[700px]"
+        className="w-[85%] xl:max-w-[1200px] h-full lg:h-[500px] xl:h-[700px]"
       >
         <CarouselContent>
           {schools.map(
             ({ image, address, addressLink, email, phone, city }) => (
-              <CarouselItem key={email} className="flex">
-                <div className="flex flex-col gap-4 p-4 max-w-[500px]">
+              <CarouselItem key={email} className="flex flex-col lg:flex-row">
+                <div className="flex flex-col gap-4 p-4 max-w-[500px] text-sm sm:text-base">
                   <Title level={3}>Школа в г.{city}</Title>
                   <Separator />
                   <div className="flex items-center gap-2">
@@ -105,7 +105,7 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
                     </Link>
                   </div>
                 </div>
-                <div className="relative w-full h-[700px]">
+                <div className="relative w-full h-[240px] sm:h-[360px] md:h-[500px] xl:h-[700px]">
                   <Image src={image} alt={email} fill />
                 </div>
               </CarouselItem>
