@@ -14,15 +14,14 @@ import { ArrowRightCircle } from 'lucide-react';
 export interface ServiceBadgeProps {
   title: string;
   description: string;
-  image?: React.ReactNode;
-  link: string;
+  image: React.ReactNode;
 }
 
 const ServiceBadge: NextComponentType<
   NextPageContext,
   {},
   ServiceBadgeProps
-> = ({ title, description, image, link }: ServiceBadgeProps) => {
+> = ({ title, description, image }: ServiceBadgeProps) => {
   return (
     <Card className="flex flex-col h-full max-h-[360px] hover:translate-y-[-5px] duration-200 cursor-pointer ease-in">
       <CardHeader className="flex-row justify-between items-center">
@@ -34,7 +33,7 @@ const ServiceBadge: NextComponentType<
       </CardContent>
       <CardFooter className="mt-auto">
         <Button className="group" asChild>
-          <Link href={link}>
+          <Link href="/services">
             Узнать больше{' '}
             <ArrowRightCircle className="ml-2 rotate-[-45deg] group-hover:rotate-0 duration-200" />
           </Link>

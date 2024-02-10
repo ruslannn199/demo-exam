@@ -20,32 +20,28 @@ interface Props {}
 
 const servicesData: ServiceBadgeProps[] = [
   {
-    title: 'Для детей',
+    title: Services.FOR_KIDS,
     description: `Уникальные программы изучения для детей:
     помогаем не только освоить новый язык, но и развить критическое мышление и творческие навыки`,
     image: <BabyIcon />,
-    link: '/services#children',
   },
   {
-    title: 'Для взрослых',
+    title: Services.FOR_ADULTS,
     description: `Взрослые могут овладеть английским языком с помощью комплексных программ,
     которые сочетают изучение новых слов и фраз с развитием коммуникативных навыков и культурных знаний`,
     image: <IconFriends />,
-    link: '/services#adults',
   },
   {
-    title: 'Индивидуальные занятия',
+    title: Services.INDIVIDUAL,
     description: `Индивидуальные уроки английского языка, адаптированные к уникальным потребностям каждого учащегося,
     позволяют применять индивидуальный подход, обеспечивающий эффективное обучение и максимальный прогресс`,
     image: <CircleUserRoundIcon />,
-    link: '/services#individual',
   },
   {
-    title: 'Корпоративное обучение',
+    title: Services.CORPORATE,
     description: `Индивидуальные программы обучения английскому языку для корпоративных клиентов,
     помогающие компаниям повысить коммуникативные навыки и продуктивность своих сотрудников`,
     image: <IconUsersGroup />,
-    link: '/services#corporate',
   },
 ];
 
@@ -66,7 +62,7 @@ const teachersData: TeachersInfoProps[] = [
   {
     name: 'Картышева Мария',
     photo: '/kartysheva.jpg',
-    role: Services.FOR_CHILDREN,
+    role: Services.FOR_KIDS,
     description:
       'Эксперт ОГЭ и ЕГЭ по английскому языку. Учитель школы «Летово». Ученый секретарь Орфографической комиссии РАН.',
   },
