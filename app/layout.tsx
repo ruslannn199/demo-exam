@@ -14,7 +14,7 @@ const comfortaa = Comfortaa({
 });
 
 export const metadata: Metadata = {
-  title: 'Title',
+  title: 'HelpingHands',
 };
 
 interface Props {
