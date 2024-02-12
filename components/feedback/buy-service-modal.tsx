@@ -22,11 +22,11 @@ const BuyServiceModal: NextComponentType<NextPageContext, {}, Props> = (
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="max-w-fit">Записаться</Button>
+        <Button className="max-w-fit" size="lg">Помочь</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Записать на курс английского языка</DialogTitle>
+          <DialogTitle>Cделать пожертвование</DialogTitle>
         </DialogHeader>
         <BuyService initialService={props.service} />
       </DialogContent>

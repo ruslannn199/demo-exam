@@ -1,9 +1,11 @@
 import Text from '@/components/typography/text';
 import Title from '@/components/typography/title';
-import { reasons, schools } from '@/consts';
-import type { NextComponentType, NextPageContext } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
+import { missions } from '@/consts';
+import type { Metadata, NextComponentType, NextPageContext } from 'next';
+
+export const metadata: Metadata = {
+  title: 'О Нас',
+};
 
 interface Props {}
 
@@ -14,93 +16,64 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
     <div className="flex flex-col gap-12 py-16 px-4">
       <div className="flex gap-12 bg-primary rounded-2xl p-8 text-primary-foreground">
         <div className="flex flex-col gap-8 w-full md:w-1/2 text-justify md:text-left">
-          <Title level={2} className="text-2xl md:text-3xl">
-            Big Ben School
+          <Title level={2} className="text-xl sm:text-2xl md:text-3xl">
+            Благотворительный фонд “HelpingHands”
           </Title>
           <Text className="text-sm sm:text-base">
-            “Big Ben School” - это инновационное образовательное
-            пространство, основанное на уникальной методике обучения
-            английскому языку, разработанной опытными лингвистами и
-            педагогами. Наша цель - предоставить каждому ученику
-            индивидуальную программу обучения, соответствующую его уровню
-            знаний, интересам и целям.{' '}
+            Наш благотворительный фонд был создан с целью оказания помощи
+            тем, кто в ней нуждается. Мы стремимся улучшить качество жизни
+            людей, особенно тех, кто находится в сложной жизненной
+            ситуации. Наша миссия - создание устойчивого и доступного
+            общества, где каждый имеет равные возможности для развития и
+            успеха.
           </Text>
           <Text className="text-sm sm:text-base">
-            В основе нашей методики лежит коммуникативный подход, который
-            позволяет ученикам преодолеть языковой барьер и свободно
-            общаться на английском языке. Мы используем самые современные и
-            эффективные методы обучения, такие как дискуссии, ролевые игры,
-            проектная работа и работа в мини-группах.{' '}
+            На протяжении многих лет мы успешно реализуем различные
+            проекты, направленные на поддержку малоимущих слоев населения,
+            людей с ограниченными возможностями, а также тех, кто попал в
+            трудную жизненную ситуацию. Мы верим, что каждый человек
+            заслуживает шанса на лучшую жизнь и готовы сделать все
+            возможное, чтобы помочь ему в этом.
           </Text>
           <Text className="text-sm sm:text-base">
-            “Big Ben School” предлагает разнообразные курсы и программы для
-            детей, подростков и взрослых, начиная от базовых уровней
-            Elementary и Pre-Intermediate до продвинутых уровней
-            Upper-Intermediate и Advanced. Наши опытные и квалифицированные
-            преподаватели используют индивидуальный подход к каждому
-            ученику, учитывая его потребности и способности.
+            В своей работе мы используем разнообразные методы и подходы,
+            исходя из специфики каждого проекта. Например, мы можем
+            организовывать образовательные программы для детей из
+            неблагополучных семей, предоставлять помощь пожилым людям,
+            обеспечивать доступ к медицинскому обслуживанию и многое
+            другое.
           </Text>
           <Text className="text-sm sm:text-base">
-            Мы стремимся создать дружественную и комфортную атмосферу на
-            занятиях, чтобы каждый ученик чувствовал себя уверенно и мог
-            раскрыть свой потенциал. Наша школа оснащена современными
-            учебными материалами, интерактивными досками и мультимедийными
-            средствами обучения.
+            Наша команда состоит из профессионалов в различных областях,
+            которые обладают опытом и знаниями, необходимыми для успешной
+            реализации наших проектов. Мы постоянно работаем над улучшением
+            наших методов и подходов, чтобы более эффективно достигать
+            поставленных целей.
           </Text>
           <Text className="text-sm sm:text-base">
-            На протяжении всего курса ученики имеют возможность участвовать
-            в различных мероприятиях, таких как разговорные клубы,
-            тематические недели, конкурсы и олимпиады, что помогает им
-            закрепить полученные знания и развить коммуникативные навыки.
+            Мы благодарны всем, кто поддерживает нашу работу и верит в наши
+            цели. Ваше участие и поддержка делают возможным то, что мы
+            делаем. Вместе мы можем изменить мир к лучшему и сделать его
+            более справедливым и равным для всех.
           </Text>
         </div>
-        <div className="w-1/2 bg-laptop rounded-2xl hidden md:block" />
+        <div className="w-1/2 bg-about rounded-2xl hidden md:block" />
       </div>
       <section className="flex flex-col gap-8">
         <Title className="text-center" level={2}>
-          Почему мы?
+          Наша миссия
         </Title>
-        {reasons.map(({ image, text }, index) => (
+        {missions.map(({ image, text }, index) => (
           <div
             key={index}
             className="flex flex-col md:flex-row justify-center items-center gap-8"
           >
-            <Image src={image} alt="reason" width={100} height={100} />
+            <div className="w-[64px] h-[64px]">
+              {image}
+            </div>
             <Text className="max-w-[60%] w-[395px] text-xl">{text}</Text>
           </div>
         ))}
-      </section>
-      <section className="flex flex-col items-center gap-8" id="contacts">
-        <Title className="text-center" level={2}>
-          Наши школы
-        </Title>
-        <div className="flex flex-col gap-8">
-          {schools.map(({ image, address, email, phone }, index) => (
-            <div
-              key={index}
-              className="flex flex-col md:flex-row md:items-center gap-8"
-            >
-              <Image src={image} alt="school" width={200} height={200} />
-              <div className="flex flex-col justify-center gap-2">
-                <Text className="w-[100%] max-w-[625px] text-xl">
-                  {address}
-                </Text>
-                <Link
-                  href={`mailto:${email}`}
-                  className="w-[100%] max-w-[625px] text-xl"
-                >
-                  {email}
-                </Link>
-                <Link
-                  href={`tel:8${phone.replaceAll(/\D/g, '').substring(1)}`}
-                  className="w-[100%] max-w-[625px] text-xl"
-                >
-                  {phone}
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
       </section>
     </div>
   );

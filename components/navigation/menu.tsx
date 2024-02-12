@@ -14,25 +14,23 @@ import { MenuIcon } from 'lucide-react';
 import { useState } from 'react';
 import { cn, useWindowSize } from '@/lib';
 
-// TODO: change backgroundColor on hover
-
 interface Props {}
 
 const menuItems = [
   {
-    title: 'О компании',
+    title: 'О Нас',
     href: '/about',
   },
   {
-    title: 'Школы',
-    href: '/schools',
+    title: 'Проекты',
+    href: '/projects',
   },
   {
-    title: 'Услуги',
-    href: '/services',
+    title: 'Помочь',
+    href: '/help',
   },
   {
-    title: 'Новости',
+    title: 'События',
     href: '/news',
   },
 ];

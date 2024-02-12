@@ -85,7 +85,7 @@
     transform: scaleY(-1);
   }
 
-  .bg-laptop {
-    background: transparent url(/laptop.jpg) 50% no-repeat;
+  .bg-about {
+    background: transparent url(/about.jpg) 50% no-repeat;
   }
 }

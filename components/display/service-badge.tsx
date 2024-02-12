@@ -37,7 +37,7 @@ const ServiceBadge: NextComponentType<
       </CardContent>
       <CardFooter className="mt-auto">
         <Button className="group" asChild>
-          <Link href="/services">
+          <Link href="/help">
             Узнать больше{' '}
             <ArrowRightCircle className="ml-2 rotate-[-45deg] group-hover:rotate-0 duration-200" />
           </Link>

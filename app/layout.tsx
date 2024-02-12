@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Rubik } from 'next/font/google';
+import { Comfortaa } from 'next/font/google';
 import type { NextComponentType, NextPageContext } from 'next';
 import './globals.css';
 import { cn } from '@/lib';
@@ -7,11 +7,7 @@ import Header from '@/components/layout/header';
 import Main from '@/components/layout/main';
 import Footer from '@/components/layout/footer';
 
-// TODO: Make global layout
-// Footer must contain copyright, requisites, contacts and social networks
-// Also there's need in favicon and meta tags?
-
-const inter = Rubik({
+const comfortaa = Comfortaa({
   subsets: ['latin', 'cyrillic'],
   weight: ['300', '400', '500', '700'],
   variable: '--font-sans',
@@ -33,7 +29,7 @@ const RootLayout: NextComponentType<NextPageContext, {}, Props> = ({
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased relative',
-          inter.variable,
+          comfortaa.variable,
         )}
       >
         <Header />

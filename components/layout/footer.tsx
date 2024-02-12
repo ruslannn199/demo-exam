@@ -17,12 +17,15 @@ interface Props {}
 
 const usefulLinks: React.ReactNode[] = [
   <Link href="/about" key="about">
-    О компании
+    О Нас
   </Link>,
-  <Link href="/#teachers" key="teachers">
-    Преподаватели
+  <Link href="/projects" key="projects">
+    Проекты
   </Link>,
-  <Link href="/about#contacts" key="contacts">
+  <Link href="/help" key="help">
+    Помочь
+  </Link>,
+  <Link href="/#contacts" key="contacts">
     Контакты
   </Link>,
 ];
@@ -30,25 +33,25 @@ const usefulLinks: React.ReactNode[] = [
 const socialNetworksData = [
   {
     key: 'vk',
-    href: 'https://vk.com/bigbenschool',
+    href: 'https://vk.com/helpinghands',
     icon: <IconBrandVk />,
     text: 'ВКонтакте',
   },
   {
     key: 'ok',
-    href: 'https://ok.ru/bigbenschool',
+    href: 'https://ok.ru/helpinghands',
     icon: <IconBrandOkRu />,
     text: 'Одноклассники',
   },
   {
     key: 'instagram',
-    href: 'https://instagram.com/bigbenschool',
+    href: 'https://instagram.com/helpinghands',
     icon: <IconBrandInstagram />,
     text: 'Instagram',
   },
   {
     key: 'telegram',
-    href: 'https://t.me/bigbenschool',
+    href: 'https://t.me/helpinghands',
     icon: <IconBrandTelegram />,
     text: 'Телеграм',
   },
@@ -81,7 +84,7 @@ const contactsData = [
     key: 'telegram',
     icon: <IconBrandTelegram />,
     text: 'Бот в Телеграме',
-    href: 'https://t.me/bigbenschool_bot',
+    href: 'https://t.me/helpinghands_bot',
     target: '_blank',
   },
   {
@@ -94,8 +97,8 @@ const contactsData = [
   {
     key: 'email',
     icon: <IconMail />,
-    text: 'bigbenschool@gmail.com',
-    href: 'mailto:bigbenschool@gmail.com',
+    text: 'helpinghands@ya.ru',
+    href: 'mailto:helpinghands@ya.ru',
     target: '_self',
   },
 ];
@@ -125,23 +128,23 @@ const Footer: NextComponentType<NextPageContext, {}, Props> = (
         'angle flex flex-wrap flex-col gap-4 justify-around md:flex-row md:flex-nowrap',
       )}
     >
-      <div className="container mx-auto px-8 flex flex-col gap-2">
-        <Logo className="text-primary-foreground mb-4" />
+      <div className="container mx-auto px-8 flex flex-col gap-2 md:w-1/3">
+        <Logo footer />
         {...usefulLinks}
       </div>
-      <div className="container mx-auto px-8 flex flex-col gap-2">
+      <div className="container mx-auto px-8 flex flex-col gap-2 md:w-1/3">
         <Title className="text-primary-foreground" level={3}>
           Социальные сети
         </Title>
         {...socialNetworks}
       </div>
-      <div className="container mx-auto px-8 flex flex-col gap-2">
+      <div className="container mx-auto px-8 flex flex-col gap-2 md:w-1/3">
         <Title className="text-primary-foreground" level={3}>
           Свяжитесь с нами
         </Title>
         {...contacts}
         <Text className="text-primary-foreground mt-4 flex items-center gap-2">
-          <Text className="text-2xl">©</Text>BigBenSchool,{' '}
+          <Text className="text-2xl">©</Text>HelpingHands,{' '}
           {new Date().getFullYear()}
         </Text>
       </div>

@@ -15,18 +15,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import DatePicker from '@/components/ui/date-picker';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib';
-import { addDays, addMonths, format } from 'date-fns';
-import { CalendarIcon } from 'lucide-react';
-import { Calendar } from '../ui/calendar';
-import { ru } from 'date-fns/locale';
 import SelectService from '@/components/entry/select-service';
 import PhoneInput from './phone-input';
 
@@ -45,10 +34,25 @@ const formSchema = z.object({
   email: z
     .string({ required_error: 'Заполните поле' })
     .email({ message: 'Неверный адрес электронной почты' }),
-  date: z.date({ required_error: 'Пожалуйста, выберите дату' }),
-  time: z
-    .string({ required_error: 'Пожалуйста, выберите время' })
-    .min(1, { message: 'Пожалуйста, выберите время' }),
+  sum: z
+    .string({ required_error: 'Заполните поле' })
+    .transform((val, ctx) => {
+      const number = parseInt(val, 10);
+      if (isNaN(number)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Неверная сумма',
+        });
+      }
+      if (number < 100) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Сумма должна быть не меньше 100 рублей',
+        });
+        return z.NEVER;
+      }
+      return number;
+    })
 });
 
 type FormSchema = z.infer<typeof formSchema>;
@@ -67,11 +71,6 @@ const BuyService: NextComponentType<NextPageContext, {}, Props> = (
       name: '',
       phone: '',
       email: '',
-      date:
-        addDays(new Date(), 1).getDay() === 0
-          ? addDays(new Date(), 2)
-          : addDays(new Date(), 1),
-      time: '',
     },
   });
 
@@ -131,68 +130,18 @@ const BuyService: NextComponentType<NextPageContext, {}, Props> = (
         />
         <FormField
           control={form.control}
-          name="date"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>Выберите свободный день записи</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        'max-w-[280px] pl-3 text-left font-normal',
-                        !field.value && 'text-muted-foreground',
-                      )}
-                    >
-                      {field.value ? (
-                        format(field.value, 'PPP', { locale: ru })
-                      ) : (
-                        <span>Выберите дату</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    locale={ru}
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date < new Date() ||
-                      date > addMonths(new Date(), 2) ||
-                      date.getDay() === 0
-                    }
-                    defaultMonth={field.value}
-                  />
-                </PopoverContent>
-              </Popover>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="time"
+          name="sum"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Выберите время</FormLabel>
+              <FormLabel>Сумма</FormLabel>
               <FormControl>
-                <Input
-                  type="time"
-                  min="09:00"
-                  max="18:00"
-                  className="md:max-w-[215px]"
-                  {...field}
-                />
+                <Input type="number" placeholder="500" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Отправить заявку</Button>
+        <Button type="submit">Помочь</Button>
       </form>
     </Form>
   );

@@ -1,14 +1,16 @@
 import News from '@/components/display/news';
 import ServiceBadge from '@/components/display/service-badge';
-import TeacherInfo from '@/components/display/teacher-info';
+import WaysToHelpCard from '@/components/display/ways-to-help-card';
 import Question from '@/components/entry/question';
-import Trial from '@/components/entry/trial';
 import Text from '@/components/typography/text';
 import Title from '@/components/typography/title';
-import { Separator } from '@/components/ui/separator';
-import { services, advantages, teachers } from '@/consts';
+import { services } from '@/consts';
 import { cn } from '@/lib';
-import type { NextComponentType, NextPageContext } from 'next';
+import type { Metadata, NextComponentType, NextPageContext } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Главная',
+}
 
 interface Props {}
 
@@ -19,7 +21,7 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
     <div className="flex flex-col gap-10">
       <div className="relative">
         <video
-          src="/main.mp4"
+          src="/promo.mp4"
           autoPlay
           loop
           muted
@@ -33,10 +35,9 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
         >
           <Title
             level={2}
-            className="font-thin text-sm sm:text-2xl md:text-4xl"
+            className="font-thin text-xs sm:text-2xl md:text-4xl"
           >
-            Big Ben - это онлайн и оффлайн школа английского языка для
-            детей и взрослых
+            Присоединяйтесь к движению HelpingHands и меняйте жизни людей к лучшему, вместе с нашим благотворительным фондом!
           </Title>
         </article>
       </div>
@@ -45,45 +46,22 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (
           <ServiceBadge key={service.title} {...service} />
         ))}
       </div>
-      <section className="flex flex-col">
-        <Title level={2}>Мы предлагаем:</Title>
-        <ul className="my-6 ml-6 list-desc [&>li]:mt-2">
-          {advantages.map((advantage, index) => (
-            <li className="text-xl flex flex-col gap-2" key={index}>
-              {advantage}
-              <Separator />
-            </li>
-          ))}
-        </ul>
+      <section className="flex flex-col gap-1">
+        <Title level={2} className="text-3xl md:text-5xl text-center">Как помочь?</Title>
+        <Text className="sm:text-xl md:text-2xl">Есть очень много разных способов.</Text>
+        <Text className="sm:text-xl md:text-2xl">Пожертвование — только один из них.</Text>
+        <Text className="sm:text-xl md:text-2xl">Выберите удобный вам формат.</Text>
+        <WaysToHelpCard />
       </section>
       <div
         className={cn(
           `flex flex-col items-center w-full gap-24 gap-x-12 md:gap-12`,
-          `before:absolute before:h-[600px] md:before:h-[400px] before:w-full before:bg-secondary before:mx-[-16px]`,
         )}
       >
-        <Trial />
         <Question />
       </div>
-      <section
-        className="flex flex-col justify-center items-center gap-8 text-center"
-        id="teachers"
-      >
-        <Title level={2}>Наши преподаватели</Title>
-        <Text className="px-12">
-          У нас работают лучшие преподаватели России в сегменте
-          дополнительного школьного образования по данным исследования:
-          сотрудники МФТИ и НИУ ВШЭ, члены жюри Всероссийской олимпиады,
-          эксперты ОГЭ и ЕГЭ.
-        </Text>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-left">
-          {teachers.map((info) => (
-            <TeacherInfo key={info.name} {...info} />
-          ))}
-        </div>
-      </section>
       <section>
-        <Title level={2}>Последние новости</Title>
+        <Title level={2}>Публикации</Title>
         <News amount={4} />
       </section>
     </div>

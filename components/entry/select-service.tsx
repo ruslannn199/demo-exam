@@ -46,18 +46,15 @@ const SelectService: NextComponentType<NextPageContext, {}, Props> = (
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectLabel>Наши услуги</SelectLabel>
-                  <SelectItem value={Services.FOR_KIDS}>
-                    {Services.FOR_KIDS}
+                  <SelectLabel>Наши проекты</SelectLabel>
+                  <SelectItem value={Services.EDUCATION}>
+                    {Services.EDUCATION}
                   </SelectItem>
-                  <SelectItem value={Services.FOR_ADULTS}>
-                    {Services.FOR_ADULTS}
+                  <SelectItem value={Services.MEDICINE}>
+                    {Services.MEDICINE}
                   </SelectItem>
-                  <SelectItem value={Services.INDIVIDUAL}>
-                    {Services.INDIVIDUAL}
-                  </SelectItem>
-                  <SelectItem value={Services.CORPORATE}>
-                    {Services.CORPORATE}
+                  <SelectItem value={Services.GREEN_CITY}>
+                    {Services.GREEN_CITY}
                   </SelectItem>
                 </SelectGroup>
               </SelectContent>
